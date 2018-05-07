@@ -295,61 +295,68 @@ end
 function bonemeal:add_deco(list)
 
 	for l = 1, #list do
-    
+
 		for n = 1, #deco do
 
 			-- update existing entry
 			if list[l][1] == deco[n][1] then
-				
+
 				-- adding grass types
 				for _,extra in ipairs(list[l][2]) do
+
 					if extra ~= "" then
+
 						for __,entry in ipairs(deco[n][2]) do
+
 							if extra == entry then
 								extra = false
 								break
 							end
 						end
 					end
+
 					if extra then
 						table.insert(deco[n][2], extra)
 					end
 				end
-				
+
 				-- adding decoration types
 				for _,extra in ipairs(list[l][3]) do
+
 					if extra ~= "" then
+
 						for __,entry in ipairs(deco[n][3]) do
+
 							if extra == entry then
 								extra = false
 								break
 							end
 						end
 					end
+
 					if extra then
 						table.insert(deco[n][3], extra)
 					end
 				end
-    
+
 				list[l] = false
 				break
 			end
-    
 		end
-    
+
 		if list[l] then
 			table.insert(deco, list[l])
 		end
-	
 	end
 end
+
 
 -- definitively set a decration scheme
 -- this function will either add a new entry as is, or replace the existing one
 function bonemeal:set_deco(list)
 
 	for l = 1, #list do
-    
+
 		for n = 1, #deco do
 
 			-- replace existing entry
@@ -360,13 +367,13 @@ function bonemeal:set_deco(list)
 				break
 			end
 		end
-    
+
 		if list[l] then
 			table.insert(deco, list[l])
 		end
-    
 	end
 end
+
 
 -- global on_use function for bonemeal
 function bonemeal:on_use(pos, strength, node)
@@ -454,6 +461,7 @@ minetest.register_craftitem("bonemeal:mulch", {
 		return itemstack
 	end,
 })
+
 
 -- bonemeal (strength 2)
 minetest.register_craftitem("bonemeal:bonemeal", {

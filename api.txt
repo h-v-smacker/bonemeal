@@ -59,19 +59,19 @@ which allows to decrease the frequency of decoration emergence, if needed.
 e.g.
 
 bonemeal:add_deco({
-	{"default:dirt_with_dry_grass", {"default:dry_grass_1", ""}, 
+	{"default:dirt_with_dry_grass", {"default:dry_grass_1", ""},
 		{"flowers:rose", "flowers:viola"} }
 })
 
 Thus, add_deco() always adds (to) a definition, and never overrides. To discard an existing
 definiton in favor of the new one, use
-	
+
 bonemeal:set_deco({
 	{ dirt_node, {grass_node_list}, {decor_node_list} }
 })
 
 This command will set decoration for a given dirt type, fully replacing any existing definition.
-	
+
 
 Global ON_USE Function
 ----------------------
